@@ -5,6 +5,22 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>TODO_Project</title>
+   <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+   <meta name="theme-color" content="#ffffff">
    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/main.css">
@@ -12,13 +28,41 @@
 
 <body>
    <div class="wrapper">
+      <h1 class="heading-1">TODO List</h1>
       <section class="todo">
-         <div class="todo__body">
-            <div class="todo__header">
-               <figure class="todo__img">
-                  <img src="img/1.jpg" alt="bg image" class="todo__pic">
+         <div class="container">
+            <div class="todo__body">
+               <!--Todo Header starts-->
+               <figure class="todo__header">
+                  <img class="todo__img" src="img/1.jpg" alt="todo image">
+                  <div class="todo__header-time">20:16:20</div>
+                  <div class="todo__header-date">Wendesday, Oct 21</div>
+                  <svg class="todo__header-icon">
+                     <use xlink:href="iconsprite/symbol-defs.svg#icon-spin"></use>
+                  </svg>
                </figure>
-              
+               <!--Todo Header ends-->
+               
+               <ul class="todo__list">
+                  <li class="todo__item">
+                     <p class="todo__item-text">Make Coffe</p>
+                  </li>
+                  <li class="todo__item">Go For a walk</li>
+                  <li class="todo__item">Go to bed</li>
+               </ul>
+               <!--Todo list ends-->
+               <!--Todo add field starts-->
+               <div class="todos__add-field">
+                  <div class="todos__add-field-body">
+                     <div class="todos__add-field-btn">
+                        <svg class="todo__add-field-icon">
+                           <use xlink:href="iconsprite/symbol-defs.svg#icon-plus"></use>
+                        </svg>
+                     </div>
+                     <input class="todos__add-field-input" type="text" placeholder="Add new Todo">
+                  </div>
+               </div>
+               <!--Todo add field ends-->
             </div>
          </div>
       </section>
@@ -26,4 +70,5 @@
    <script src="js/main.js"></script>
 </body>
 <h1></h1>
+
 </html>

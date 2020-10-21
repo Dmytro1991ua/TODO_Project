@@ -1,9 +1,15 @@
+/* Color variables */
+
 :root {
     --color-dark-blue: #090c1b;
     --color-mantis: #7ac142;
     --color-mantis-darker: #5a803d;
     --color-lighter-blue: #153c6b;
+    --color-white: #ffffff;
+    --color-black: #000000;
 }
+
+/* General Styles */
 
 *,
 *::before,
@@ -57,17 +63,154 @@ body {
     box-sizing: border-box;
     position: relative;
     background-color: var(--color-lighter-blue);
+    color: var(--color-white);
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-h1 {
+.heading-1 {
     font-size: calc(24px + 30 * ((100vw - 320px) / (1920 - 320))); /* 16 получаем отнимая размер шрифта по макету (40px) от минимального размера шрифта (24) */
+    font-family: 'Grandstander', cursive;
+    text-transform: uppercase;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
 }
 
-// "started out a new TODO_Project. Started from adding some HTML and CSS structure
+/*Todo Styles*/
+
+.todo {
+    width: 100%;
+    padding: 0 1.3rem;
+    filter: drop-shadow(0 0 0.75rem var(--color-black, 0.4));
+}
+
+.container {}
+
+.todo__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 46rem;
+    background-color: var(--color-dark-blue);
+    border: 3px solid var(--color-mantis);
+    border-radius: 1rem;
+    margin: auto;
+}
+
+/* Todo Header */
+
+.todo__header {
+    position: relative;
+}
+
+.todo__img {
+    border-radius: 1rem;
+}
+
+.todo__header-time {
+    position: absolute;
+    bottom: .3rem;
+    right: 1rem;
+    font-size: calc(16px + 18 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.todo__header-date {
+    position: absolute;
+    bottom: .3rem;
+    left: 1rem;
+    font-size: calc(18px + 20 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.todo__header-icon {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    fill: var(--color-white);
+    cursor: pointer;
+    animation: spin 2s linear infinite;
+}
+
+/* Todo list */
+.todo__list {
+    flex: 1 1 auto;
+}
+
+.todo__item {
+    font-family: 'Grandstander', cursive;
+    padding: 1rem 1rem;
+    margin-bottom: 1.3rem;
+    border-bottom: 1px solid var(--color-mantis-darker);
+}
+
+.todo__item:last-child {
+   margin-bottom: 0;
+}
+
+.todos__add-field {
+    padding: 1rem 1rem;
+    border-top: 1px solid var(--color-mantis-darker);
+}
+
+.todos__add-field-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todos__add-field-btn {
+    margin-right: 1.2rem;
+    width: 5.2rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-mantis-darker);
+    border-radius: 50%;
+}
+
+.todo__add-field-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-white);
+}
+
+.todos__add-field-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--color-mantis);
+    border-radius: 1rem;
+    background-color: transparent;
+    padding: .8rem 2rem;
+    color: var(--color-mantis);
+    text-transform: uppercase;
+}
+
+.todos__add-field-input::placeholder {
+    color: var(--color-mantis);
+}
+
+.todos__add-field-input:focus {
+    outline: none;
+}
+
+/* Animations */
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
