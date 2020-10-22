@@ -86,7 +86,7 @@ body {
 @media (min-width: 75em) {
     .heading-1 {
         margin-top: 5rem;
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
     }
 }
 
@@ -115,6 +115,12 @@ body {
 @media (min-width: 29em) {
     .todo__body {
         width: fit-content;
+    }
+}
+
+@media (min-width: 62em) {
+    .todo__body {
+        min-height: 54rem;
     }
 }
 
@@ -183,16 +189,13 @@ body {
     transition: all .3s ease-in-out;
 }
 
-.todo__item-icon {
-
+.todo__item-icon:hover {
+    transform: scale(1.03);
 }
 
 .todo__item-icon--unchecked {}
 
-.todo__item-icon--colored {
-    opacity: 0;
-    visibility: hidden;
-}
+.todo__item-icon--colored {}
 
 .todo__item-text {
     margin-right: auto;
@@ -200,7 +203,15 @@ body {
 
 .todo__item-icon--trash-bin {}
 
-/* Todo add btn */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hide.active {
+    opacity: 1;
+    visibility: visible;
+}
 
 .todos__add-field {
     padding: 1rem 1rem;
@@ -221,6 +232,7 @@ body {
     align-items: center;
     background-color: var(--color-mantis-darker);
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .todo__add-field-icon {
@@ -237,7 +249,6 @@ body {
     background-color: transparent;
     padding: .8rem 2rem;
     color: var(--color-mantis);
-    text-transform: uppercase;
 }
 
 .todos__add-field-input::placeholder {
