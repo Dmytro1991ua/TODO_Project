@@ -83,12 +83,20 @@ body {
     margin-bottom: 1.2rem;
 }
 
+@media (min-width: 75em) {
+    .heading-1 {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}
+
 /*Todo Styles*/
 
 .todo {
     width: 100%;
     padding: 0 1.3rem;
     filter: drop-shadow(0 0 0.75rem var(--color-black, 0.4));
+    margin-bottom: 3rem;
 }
 
 .container {}
@@ -104,28 +112,36 @@ body {
     margin: auto;
 }
 
+@media (min-width: 29em) {
+    .todo__body {
+        width: fit-content;
+    }
+}
+
 /* Todo Header */
 
 .todo__header {
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .todo__img {
     border-radius: 1rem;
+    max-height: 26rem;
 }
 
 .todo__header-time {
     position: absolute;
     bottom: .3rem;
     right: 1rem;
-    font-size: calc(16px + 18 * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .todo__header-date {
     position: absolute;
     bottom: .3rem;
     left: 1rem;
-    font-size: calc(18px + 20 * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(18px + 12 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .todo__header-icon {
@@ -145,6 +161,10 @@ body {
 }
 
 .todo__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));
     font-family: 'Grandstander', cursive;
     padding: 1rem 1rem;
     margin-bottom: 1.3rem;
@@ -152,8 +172,35 @@ body {
 }
 
 .todo__item:last-child {
-   margin-bottom: 0;
+    margin-bottom: 0;
 }
+
+.todo__item-icon {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--color-mantis);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.todo__item-icon {
+
+}
+
+.todo__item-icon--unchecked {}
+
+.todo__item-icon--colored {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.todo__item-text {
+    margin-right: auto;
+}
+
+.todo__item-icon--trash-bin {}
+
+/* Todo add btn */
 
 .todos__add-field {
     padding: 1rem 1rem;
