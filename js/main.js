@@ -1,13 +1,16 @@
 const runScript = () => {
+   
    //select elements to work with
    const time = document.querySelector(".todo__header-time");
+   const date = document.querySelector('.todo__header-date');
+   
 
    //add zero to a seconds and minutes
    const addZero = (num) => {
       return (parseInt(num, 10) < 10 ? "0" : "") + num;
    };
 
-   //function to display current time
+   // display current time
    const displayTime = () => {
       let today = new Date(),
          hours = today.getHours(),
@@ -22,10 +25,22 @@ const runScript = () => {
       setTimeout(displayTime, 1000);
    };
 
-
+   // display current date
+   const displayDate = () => {
+      const dateToday = new Date();
+      const options = {
+         weekday: 'long',
+         year: "numeric",
+         month: 'short',
+         day: 'numeric',
+      };
+      date.textContent = dateToday.toLocaleDateString("en-US", options); // convert the date (date object) into a readable string, using locale conventions
+   };
+   
 
    //call functions
    displayTime();
+   displayDate();
 };
 
 if (document.readyState = "loading") {
