@@ -175,6 +175,12 @@ body {
     padding: 1rem 1rem;
     margin-bottom: 1.3rem;
     border-bottom: 1px solid var(--color-mantis-darker);
+    transition: all .3s ease-in-out;
+}
+
+.animated {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
 }
 
 .todo__item:last-child {
