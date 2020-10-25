@@ -140,14 +140,14 @@ body {
     position: absolute;
     bottom: .3rem;
     right: 1rem;
-    font-size: calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(13px + 11 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .todo__header-date {
     position: absolute;
     bottom: .3rem;
     left: 1rem;
-    font-size: calc(18px + 12 * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(16px + 12 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .todo__header-icon {
@@ -159,6 +159,36 @@ body {
     fill: var(--color-white);
     cursor: pointer;
     animation: spin 2s linear infinite;
+}
+
+.todo__filter-box {
+    position: absolute;
+    top: 1.3rem;
+    left: .8rem;
+}
+
+.todo__filter-box::after {
+    content: "\25bc";
+    position: absolute;
+    top: 14%;
+    right: 1rem;
+    color: var(--color-mantis-darker);
+    pointer-events: none;
+}
+
+.todo__filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: 2px solid var(--color-mantis-darker);
+    border-radius: 1.5rem;
+    color: var(--color-mantis);
+    padding: .7rem;
+    cursor: pointer;
+    width: 12rem;
 }
 
 /* Todo list */
@@ -176,6 +206,11 @@ body {
     margin-bottom: 1.3rem;
     border-bottom: 1px solid var(--color-mantis-darker);
     transition: all .3s ease-in-out;
+}
+
+.crossed {
+    text-decoration: line-through;
+    opacity: .3;
 }
 
 .animated {
@@ -199,9 +234,14 @@ body {
     transform: scale(1.03);
 }
 
-.todo__item-icon--unchecked {}
+.todo__item-icon--unchecked {
+    margin-right: .7rem;
+}
 
-.todo__item-icon--colored {}
+.todo__item-icon--colored {
+    margin-left: -3.5rem;
+    margin-right: 1rem;
+}
 
 .todo__item-text {
     margin-right: auto;

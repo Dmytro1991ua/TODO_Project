@@ -41,6 +41,13 @@
                   <svg class="todo__header-icon">
                      <use xlink:href="iconsprite/symbol-defs.svg#icon-spin"></use>
                   </svg>
+                  <div class="todo__filter-box">
+                     <select name="todo" class="todo__filter">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                     </select>
+                  </div>
                </figure>
                <!--Todo Header ends-->
                <ul class="todo__list">
@@ -56,6 +63,56 @@
                         <use xlink:href="iconsprite/symbol-defs.svg#icon-trash-o"></use>
                      </svg>
                   </li> -->
+               </ul>
+               <!--Todo list ends-->
+               <!--Todo add field starts-->
+               <div class="todos__add-field">
+                  <div class="todos__add-field-body">
+                     <div class="todos__add-field-btn">
+                        <svg class="todo__add-field-icon">
+                           <use xlink:href="iconsprite/symbol-defs.svg#icon-plus"></use>
+                        </svg>
+                     </div>
+                     <input class="todos__add-field-input" type="text" placeholder="Add New Todo">
+                  </div>
+               </div>
+               <!--Todo add field ends-->
+            </div>
+         </div>
+      </section>
+      <section class="todo">
+         <div class="container">
+            <div class="todo__body">
+               <!--Todo Header starts-->
+               <figure class="todo__header">
+                  <img class="todo__img" src="img/1.jpg" alt="todo image">
+                  <div class="todo__header-time"></div>
+                  <div class="todo__header-date"></div>
+                  <svg class="todo__header-icon">
+                     <use xlink:href="iconsprite/symbol-defs.svg#icon-spin"></use>
+                  </svg>
+                  <div class="todo__filter-box">
+                     <select name="todo" class="todo__filter">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                     </select>
+                  </div>
+               </figure>
+               <!--Todo Header ends-->
+               <ul class="todo__list">
+                  <!--<li class="todo__item">
+                           <svg class="todo__item-icon todo__item-icon--unchecked">
+                              <use xlink:href="iconsprite/symbol-defs.svg#icon-radio-unchecked"></use>
+                           </svg>
+                           <svg class="todo__item-icon todo__item-icon--colored hide">
+                              <use xlink:href="iconsprite/symbol-defs.svg#icon-check-circle"></use>
+                           </svg>
+                           <p class="todo__item-text">Make Coffe</p>
+                           <svg class="todo__item-icon todo__item-icon--trash-bin">
+                              <use xlink:href="iconsprite/symbol-defs.svg#icon-trash-o"></use>
+                           </svg>
+                        </li> -->
                </ul>
                <!--Todo list ends-->
                <!--Todo add field starts-->

@@ -49,10 +49,10 @@ const runScript = () => {
       if (addTodoInput.value) { // add new item only if there is a value inside <input>
          const html = `
                 <li class="todo__item">
-                   <svg class="todo__item-icon todo__item-icon--unchecked">
+                   <svg class="todo__item-icon todo__item-icon--unchecked toggle">
                          <use xlink:href="iconsprite/symbol-defs.svg#icon-radio-unchecked"></use>
                    </svg>
-                   <svg class="todo__item-icon todo__item-icon--colored hide">
+                   <svg class="todo__item-icon todo__item-icon--colored toggle hide">
                          <use xlink:href="iconsprite/symbol-defs.svg#icon-check-circle"></use>
                    </svg >
                    <p class="todo__item-text">${addTodoInput.value}</p>
@@ -126,15 +126,36 @@ const runScript = () => {
          li.classList.add("animated");
          li.addEventListener("transitionend", () => { // completely remove a todo item when animation is compleated
             li.remove();
-         }); 
+         });
       }
-   }
+   };
+
+   // check todo item and toggle checked and unchecked icon
+   const checkTodo = (event) => {
+      const target = event.target;
+
+      if (target.matches(".toggle")) {
+         const todo = target.parentElement;
+         todo.classList.toggle("crossed");
+
+         const checkedUnchekedBtns = Array.from(document.querySelectorAll(".toggle"));
+         console.log(checkedUnchekedBtns);
+
+        /* if (checkedUnchekedBtns.matches(".todo__item-icon--unchecked")) {
+            console.log("unchecked");
+         } else if (checkedUnchekedBtns.matches(".todo__item-icon--colored")) {
+            console.log("checked");
+         } */
+      }
+
+   };
 
 
    // Event listener
    addTodoInput.addEventListener("keydown", addTodoKeyPress); // add new todo when we press Enter
    addTodoBtn.addEventListener("click", addTodo);
    todoList.addEventListener("click", deleteTodo);
+   todoList.addEventListener("click", checkTodo);
 
    //call functions
    displayTime();
