@@ -170,7 +170,7 @@ body {
 .todo__filter-box::after {
     content: "\25bc";
     position: absolute;
-    top: 14%;
+    top: 21%;
     right: 1rem;
     color: var(--color-mantis-darker);
     pointer-events: none;
@@ -223,9 +223,8 @@ body {
 }
 
 .todo__item-icon {
-    width: 3rem;
-    height: 3rem;
-    fill: var(--color-mantis);
+    font-size: 3rem;
+    color: var(--color-mantis);
     cursor: pointer;
     transition: all .3s ease-in-out;
 }
@@ -239,7 +238,6 @@ body {
 }
 
 .todo__item-icon--colored {
-    margin-left: -3.5rem;
     margin-right: 1rem;
 }
 
@@ -247,7 +245,11 @@ body {
     margin-right: auto;
 }
 
-.todo__item-icon--trash-bin {}
+.todo__item-icon--trash-bin {
+    fill: var(--color-mantis);
+    width: 3rem;
+    height: 3rem;
+}
 
 .hide {
     opacity: 0;

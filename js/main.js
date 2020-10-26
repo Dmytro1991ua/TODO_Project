@@ -5,10 +5,9 @@ const runScript = () => {
       date = document.querySelector('.todo__header-date'),
       addTodoInput = document.querySelector(".todos__add-field-input"),
       addTodoBtn = document.querySelector(".todos__add-field-btn"),
-      todoList = document.querySelector(".todo__list");
+      todoList = document.querySelector(".todo__list"),
+      todoFilter = document.querySelector(".todo__filter");
 
-   // todoCheckedBtn = document.querySelector(".todo__item-icon--colored"),
-   //todoTrashBinBtn = document.querySelector(".todo__item-icon--trash-bin");
 
    let todos = [];
 
@@ -49,12 +48,9 @@ const runScript = () => {
       if (addTodoInput.value) { // add new item only if there is a value inside <input>
          const html = `
                 <li class="todo__item">
-                   <svg class="todo__item-icon todo__item-icon--unchecked toggle">
-                         <use xlink:href="iconsprite/symbol-defs.svg#icon-radio-unchecked"></use>
-                   </svg>
-                   <svg class="todo__item-icon todo__item-icon--colored toggle hide">
-                         <use xlink:href="iconsprite/symbol-defs.svg#icon-check-circle"></use>
-                   </svg >
+                   <div>
+                     <i class="todo__item-icon todo__item-icon--colored toggle fas fa-check-circle"></i>
+                   </div>
                    <p class="todo__item-text">${addTodoInput.value}</p>
                    <svg class="todo__item-icon todo__item-icon--trash-bin">
                          <use xlink:href="iconsprite/symbol-defs.svg#icon-trash-o"></use>
@@ -67,40 +63,6 @@ const runScript = () => {
 
       };
       addTodoInput.value = "";
-
-      //create <li>
-      /* const li = document.createElement("li");
-       li.classList.add("todo__item")
- 
-       // create unchecked btn
-       const btnUnchecked = document.createElement("svg");
-       btnUnchecked.classList.add("todo__item-icon", "todo__item-icon--unchecked")
-       btnUnchecked.innerHTML = `<use xlink:href="iconsprite/symbol-defs.svg#icon-radio-unchecked"></use>`
-       li.appendChild(btnUnchecked);
- 
-       //create checked btn
-       const btnChecked = document.createElement("svg");
-       btnChecked.classList.add("todo__item-icon", "todo__item-icon--colored", "hide");
-       btnChecked.innerHTML = `<use xlink:href="iconsprite/symbol-defs.svg#icon-check-circle"></use>`;
-       li.appendChild(btnChecked);
- 
-       // create <p>
-       const todoText = document.createElement("p");
-       todoText.classList.add("todo__item-text");
-       todoText.innerHTML = addTodoInput.value;
-       li.appendChild(todoText);
- 
-       // create trash btn
-       const btnTrash = document.createElement("svg");
-       btnTrash.classList.add("todo__item-icon", "todo__item-icon--trash-bin");
-       btnTrash.innerHTML = `<use xlink:href="iconsprite/symbol-defs.svg#icon-trash-o"></use>`;
-       li.appendChild(btnTrash);
- 
-       //append <li> to <ul>
-       todoList.appendChild(li);
- 
- 
-       console.log(todoList); */
    };
 
    // add todo when we press Enter key
@@ -134,20 +96,39 @@ const runScript = () => {
    const checkTodo = (event) => {
       const target = event.target;
 
-      if (target.matches(".toggle")) {
-         const todo = target.parentElement;
+      if (target.matches(".fa-check-circle")) {
+         const todo = target.parentElement.parentElement; // get <li> parent
          todo.classList.toggle("crossed");
-
-         const checkedUnchekedBtns = Array.from(document.querySelectorAll(".toggle"));
-         console.log(checkedUnchekedBtns);
-
-        /* if (checkedUnchekedBtns.matches(".todo__item-icon--unchecked")) {
-            console.log("unchecked");
-         } else if (checkedUnchekedBtns.matches(".todo__item-icon--colored")) {
-            console.log("checked");
-         } */
       }
+   };
 
+   // toggle conpleated todo items
+
+   const toggleCompleated = (event) => {
+      const target = event.target.value; // grab a specific value of clicked option
+      const todoItems = Array.from(todoList.children); // grab all todo items
+
+      todoItems.forEach(todo => {
+         switch (target) {
+            case "all":
+               todo.style.display = "flex";
+               break;
+            case "completed":
+               if (todo.classList.contains("crossed")) {
+                  todo.style.display = "flex";
+               } else {
+                  todo.style.display = "none";
+               }
+               break;
+            case "uncompleted":
+               if (!todo.classList.contains("crossed")) {
+                  todo.style.display = "flex";
+               } else {
+                  todo.style.display = "none";
+               }
+               break;
+         }
+      });
    };
 
 
@@ -156,6 +137,7 @@ const runScript = () => {
    addTodoBtn.addEventListener("click", addTodo);
    todoList.addEventListener("click", deleteTodo);
    todoList.addEventListener("click", checkTodo);
+   todoFilter.addEventListener("click", toggleCompleated);
 
    //call functions
    displayTime();
