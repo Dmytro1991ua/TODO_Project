@@ -6,7 +6,8 @@ const runScript = () => {
       addTodoInput = document.querySelector(".todos__add-field-input"),
       addTodoBtn = document.querySelector(".todos__add-field-btn"),
       todoList = document.querySelector(".todo__list"),
-      todoFilter = document.querySelector(".todo__filter");
+      todoFilter = document.querySelector(".todo__filter"),
+      todoToggleAll = document.querySelector(".todo__toggle-todo-label");
 
 
    let todos = [];
@@ -131,6 +132,23 @@ const runScript = () => {
       });
    };
 
+   // toggle all todo items
+   const toggleAll = () => {
+     
+      for (const todo of todoList.children) { // iterate over all <li> (todo items)
+         if (!todo.matches(".crossed")) { // if todo item isn't completed (doesn't have class ".crossed") then apply this class to all elements
+            for (const todo of todoList.children) {
+               todo.classList.add("crossed");
+            }
+         } else {
+            for (const todo of todoList.children) { //remove class ".crossed" from all elements
+               todo.classList.remove("crossed");
+            }
+         }
+      }
+
+   };
+
 
    // Event listener
    addTodoInput.addEventListener("keydown", addTodoKeyPress); // add new todo when we press Enter
@@ -138,6 +156,7 @@ const runScript = () => {
    todoList.addEventListener("click", deleteTodo);
    todoList.addEventListener("click", checkTodo);
    todoFilter.addEventListener("click", toggleCompleated);
+   todoToggleAll.addEventListener("click", toggleAll)
 
    //call functions
    displayTime();
