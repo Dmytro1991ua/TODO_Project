@@ -8,10 +8,11 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 
 #### Main Features of TODO_Project App:
 * Display current time and date; 
-* Add Todo Item;
-* Delete Todo Item;
-* Check Todo Item;
-* Show Completed and Uncompleted list items;
+* Add todo item;
+* Delete todo item;
+* Check todo item;
+* Show completed and uncompleted list items;
+* Toggle all todo items
 
 #### HTML/HTML5, CSS3, BEM, JS, Responsive Web Design, Mobile First Approach.
 
