@@ -4,7 +4,7 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 
 #### Project Overview:
 
-###### TODO_Project is quite a helpful and handy app to keep track on daily basis activities of any user.
+##### TODO_Project is quite a helpful and handy app to keep track on daily basis activities of any user.
 
 #### Main Features of TODO_Project App:
 * Display current time and date; 
@@ -13,6 +13,6 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 * Check Todo Item;
 * Show Completed and Uncompleted list items;
 
-#### HTML/HTML5, CSS3, SCSS, BEM, JS, Gulp, Responsive Web Design.
+#### HTML/HTML5, CSS3, BEM, JS, Responsive Web Design, Mobile First Approach.
 
 A link on GitHub Pages - https://dmytro1991ua.github.io/TODO_Project/
