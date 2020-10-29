@@ -65,7 +65,6 @@ const runScript = () => {
       };
       addTodoInput.value = "";
 
-
    };
 
    // add todo when we press Enter key
@@ -89,6 +88,7 @@ const runScript = () => {
          const li = target.parentElement;
          //add animation while deleting totdo item
          li.classList.add("animated");
+         removeLocalStorageTodo(li); // delete <li> todo item from LocalStorage
          li.addEventListener("transitionend", () => { // completely remove a todo item when animation is compleated
             li.remove();
          });
@@ -143,31 +143,21 @@ const runScript = () => {
          } else {
             todo.classList.remove("crossed");
          }
-         /*if (!todo.matches(".crossed")) { // if todo item isn't completed (doesn't have class ".crossed") then apply this class to all elements
-            for (const todo of todoList.children) {
-               todo.classList.add("crossed");
-            }
-         } else {
-            for (const todo of todoList.children) { //remove class ".crossed" from all elements
-               todo.classList.remove("crossed");
-            }
-         }*/
       }
 
    };
 
-   // check whether there is a data in LocalStorageor not
+   // check whether there is a data in LocalStorage or not
    const checkLocalStorage = () => {
-      let todos;
       // check if there is data in localStorage
-      if (localStorage.getItem("todos") === null) { // if there is not any data in localStorage then we create an aempty array
+      if (localStorage.getItem("todos") === null) { // if there is not any data in localStorage then we create an empty array
          todos = [];
-      } else { // if there is some data then convert from JSON text to Object  
+      } else { // if there is some data then convert from JSON format to Object  
          todos = JSON.parse(localStorage.getItem("todos"));
       }
    };
 
-   // save toto item to a localStorage
+   // save new todo item to a localStorage
    function saveLocalTodos(todo) {
 
       checkLocalStorage();
@@ -203,6 +193,17 @@ const runScript = () => {
          todoList.insertAdjacentHTML(position, html);
       });
    }
+
+   const removeLocalStorageTodo = (todo) => { // todo reletes to <li> todo item
+
+      checkLocalStorage();
+
+      const todoIndex = todo.innerText; // grab the name of todo item which is same name that stored in LocalStorage
+      todos.splice(todos.indexOf(todoIndex), 1); // grab an index of element that clicked and delete it from LocalStorage (array with todo items)
+
+      localStorage.setItem("todos", JSON.stringify(todos)); // update LocalStorage after a todo item was removed (convert to JSON format)
+   };
+
 
    // clear all items from a localStorage and reload the page
    const clearLocalStorage = () => {

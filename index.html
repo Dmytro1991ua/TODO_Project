@@ -26,52 +26,50 @@
    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/main.css">
    <script defer src="js/main.js"></script>
-   
+
 </head>
 
 <body>
    <div class="wrapper">
       <h1 class="heading-1">TODO List</h1>
       <section class="todo">
-         <div class="container">
-            <div class="todo__body">
-               <!--Todo Header starts-->
-               <figure class="todo__header">
-                  <img class="todo__img" src="img/1.jpg" alt="todo image">
-                  <div class="todo__header-time"></div>
-                  <div class="todo__header-date"></div>
-                  <svg class="todo__header-icon">
-                     <use xlink:href="iconsprite/symbol-defs.svg#icon-spin"></use>
-                  </svg>
-                  <div class="todo__filter-box">
-                     <select name="todo" class="todo__filter">
-                        <option value="all">All</option>
-                        <option value="completed">Completed</option>
-                        <option value="uncompleted">Uncompleted</option>
-                     </select>
-                  </div>
-                  <form class="todo__toggle-todo">
-                     <input type="checkbox" class="todo__toggle-todo-checkbox" id="checkbox">
-                     <label for="checkbox" class="todo__toggle-todo-label">Toggle All</label>
-                  </form>
-               </figure>
-               <!--Todo Header ends-->
-               <!--Todo List starts-->
-               <ul class="todo__list"></ul>
-               <!--Todo list ends-->
-               <!--Todo add field starts-->
-               <div class="todos__add-field">
-                  <div class="todos__add-field-body">
-                     <div class="todos__add-field-btn">
-                        <svg class="todo__add-field-icon">
-                           <use xlink:href="iconsprite/symbol-defs.svg#icon-plus"></use>
-                        </svg>
-                     </div>
-                     <input class="todos__add-field-input" type="text" placeholder="Add New Todo">
-                  </div>
+         <div class="todo__body">
+            <!--Todo Header starts-->
+            <figure class="todo__header">
+               <img class="todo__img" src="img/1.jpg" alt="todo image">
+               <div class="todo__header-time"></div>
+               <div class="todo__header-date"></div>
+               <svg class="todo__header-icon">
+                  <use xlink:href="iconsprite/symbol-defs.svg#icon-spin"></use>
+               </svg>
+               <div class="todo__filter-box">
+                  <select name="todo" class="todo__filter">
+                     <option value="all">All</option>
+                     <option value="completed">Completed</option>
+                     <option value="uncompleted">Uncompleted</option>
+                  </select>
                </div>
-               <!--Todo add field ends-->
+               <form class="todo__toggle-todo">
+                  <input type="checkbox" class="todo__toggle-todo-checkbox" id="checkbox">
+                  <label for="checkbox" class="todo__toggle-todo-label">Toggle All</label>
+               </form>
+            </figure>
+            <!--Todo Header ends-->
+            <!--Todo List starts-->
+            <ul class="todo__list"></ul>
+            <!--Todo list ends-->
+            <!--Todo add field starts-->
+            <div class="todos__add-field">
+               <div class="todos__add-field-body">
+                  <div class="todos__add-field-btn">
+                     <svg class="todo__add-field-icon">
+                        <use xlink:href="iconsprite/symbol-defs.svg#icon-plus"></use>
+                     </svg>
+                  </div>
+                  <input class="todos__add-field-input" type="text" placeholder="Add New Todo">
+               </div>
             </div>
+            <!--Todo add field ends-->
          </div>
       </section>
    </div>

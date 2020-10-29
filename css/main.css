@@ -85,8 +85,7 @@ body {
 
 @media (min-width: 75em) {
     .heading-1 {
-        margin-top: 5rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
 }
 
@@ -98,8 +97,6 @@ body {
     filter: drop-shadow(0 0 0.75rem var(--color-black, 0.4));
     margin-bottom: 3rem;
 }
-
-.container {}
 
 .todo__body {
     width: 100%;
@@ -177,7 +174,7 @@ body {
 .todo__filter-box::after {
     content: "\25bc";
     position: absolute;
-    top: 14%;
+    top: 21%;
     right: 1rem;
     color: var(--color-mantis-darker);
     pointer-events: none;
