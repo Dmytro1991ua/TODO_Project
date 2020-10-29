@@ -356,6 +356,13 @@ body {
     cursor: pointer;
 }
 
+@media (min-width: 29em) {
+    .todos__add-field-btn {
+        width: 5.4rem;
+        height: 4.4rem;
+    }
+}
+
 .todo__add-field-icon {
     width: 2rem;
     height: 2rem;
