@@ -340,7 +340,6 @@ body {
 
 .todos__add-field {
     padding: 1rem 1rem;
-    border-top: 1px solid var(--color-mantis-darker);
 }
 
 .todos__add-field-body {

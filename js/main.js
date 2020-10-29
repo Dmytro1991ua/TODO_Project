@@ -7,10 +7,9 @@ const runScript = () => {
       addTodoBtn = document.querySelector(".todos__add-field-btn"),
       todoList = document.querySelector(".todo__list"),
       todoFilter = document.querySelector(".todo__filter"),
-      todoToggleAll = document.querySelector(".todo__toggle-todo-label");
+      todoToggleAll = document.querySelector(".todo__toggle-todo-label"),
+      clearStorage = document.querySelector(".todo__header-icon");
 
-
-   let todos = [];
 
    //add zero to a seconds and minutes
    const addZero = (num) => {
@@ -62,8 +61,11 @@ const runScript = () => {
 
          todoList.insertAdjacentHTML(position, html);
 
+         saveLocalTodos(addTodoInput.value); // add todo item(value of add todo input) to a local storage
       };
       addTodoInput.value = "";
+
+
    };
 
    // add todo when we press Enter key
@@ -134,9 +136,14 @@ const runScript = () => {
 
    // toggle all todo items
    const toggleAll = () => {
-     
+
       for (const todo of todoList.children) { // iterate over all <li> (todo items)
-         if (!todo.matches(".crossed")) { // if todo item isn't completed (doesn't have class ".crossed") then apply this class to all elements
+         if (!todo.matches(".crossed")) {
+            todo.classList.add("crossed");
+         } else {
+            todo.classList.remove("crossed");
+         }
+         /*if (!todo.matches(".crossed")) { // if todo item isn't completed (doesn't have class ".crossed") then apply this class to all elements
             for (const todo of todoList.children) {
                todo.classList.add("crossed");
             }
@@ -144,9 +151,63 @@ const runScript = () => {
             for (const todo of todoList.children) { //remove class ".crossed" from all elements
                todo.classList.remove("crossed");
             }
-         }
+         }*/
       }
 
+   };
+
+   // check whether there is a data in LocalStorageor not
+   const checkLocalStorage = () => {
+      let todos;
+      // check if there is data in localStorage
+      if (localStorage.getItem("todos") === null) { // if there is not any data in localStorage then we create an aempty array
+         todos = [];
+      } else { // if there is some data then convert from JSON text to Object  
+         todos = JSON.parse(localStorage.getItem("todos"));
+      }
+   };
+
+   // save toto item to a localStorage
+   function saveLocalTodos(todo) {
+
+      checkLocalStorage();
+
+      todos.push(todo); // push addTodoInput.value (new input value) in to array
+
+      localStorage.setItem("todos", JSON.stringify(todos)); // convert value from input to JSON format and store in localStorage
+   }
+
+   // update saved items from a LocalStorage on UI
+   const updateStorageData = () => {
+
+      if (localStorage.getItem("todos") === null) { // if there is not any data in localStorage then we create an aempty array
+         todos = [];
+      } else { // if there is some data then convert from JSON text to Object  
+         todos = JSON.parse(localStorage.getItem("todos"));
+      }
+
+      todos.forEach(todo => { // todo refers to a value from a localStorage
+         const html = `
+                <li class="todo__item">
+                   <div>
+                     <i class="todo__item-icon todo__item-icon--colored toggle fas fa-check-circle"></i>
+                   </div>
+                   <p class="todo__item-text">${todo}</p>
+                   <svg class="todo__item-icon todo__item-icon--trash-bin">
+                         <use xlink:href="iconsprite/symbol-defs.svg#icon-trash-o"></use>
+                   </svg >
+                </li >`;
+
+         const position = "beforeend";
+
+         todoList.insertAdjacentHTML(position, html);
+      });
+   }
+
+   // clear all items from a localStorage and reload the page
+   const clearLocalStorage = () => {
+      localStorage.clear();
+      location.reload(); // reload the current URL
    };
 
 
@@ -156,11 +217,13 @@ const runScript = () => {
    todoList.addEventListener("click", deleteTodo);
    todoList.addEventListener("click", checkTodo);
    todoFilter.addEventListener("click", toggleCompleated);
-   todoToggleAll.addEventListener("click", toggleAll)
+   todoToggleAll.addEventListener("click", toggleAll);
+   clearStorage.addEventListener("click", clearLocalStorage);
 
    //call functions
    displayTime();
    displayDate();
+   updateStorageData();
 };
 
 if (document.readyState = "loading") {
