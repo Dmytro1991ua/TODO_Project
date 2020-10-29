@@ -12,7 +12,10 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 * Delete todo item;
 * Check todo item;
 * Show completed and uncompleted list items;
-* Toggle all todo items
+* Toggle all todo items;
+* Save todo items in a localStoarge;
+* Remove todo items from a localStorage;
+* Clear localStorage
 
 #### HTML/HTML5, CSS3, BEM, JS, Responsive Web Design, Mobile First Approach.
 
