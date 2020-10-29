@@ -24,7 +24,7 @@ const runScript = () => {
          seconds = today.getSeconds();
       const showAmPm = true;
 
-      const amPm = hours >= 12 ? "PM" : "AM"; //figure either it is AM or PM
+      const amPm = hours >= 12 ? "PM" : "AM"; //figure out either it is AM or PM
       hours = hours % 12 || hours;// getting a 12 hours format
       time.innerHTML = `${hours}<span>:</span>${addZero(minutes)}<span>:</span>${addZero(seconds)} ${showAmPm ? amPm : ""}`;  //display time on a screen
 
@@ -106,7 +106,6 @@ const runScript = () => {
    };
 
    // toggle conpleated todo items
-
    const toggleCompleated = (event) => {
       const target = event.target.value; // grab a specific value of clicked option
       const todoItems = Array.from(todoList.children); // grab all todo items

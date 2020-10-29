@@ -174,7 +174,7 @@ body {
 .todo__filter-box::after {
     content: "\25bc";
     position: absolute;
-    top: 21%;
+    top: 14%;
     right: 1rem;
     color: var(--color-mantis-darker);
     pointer-events: none;
