@@ -4,7 +4,7 @@ Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving
 
 #### Project Overview:
 
-##### TODO_Project is quite a helpful and handy app to keep track on daily basis activities of any user.
+##### TODO_Project is quite a helpful and handy app to keep track of daily basis activities of any user.
 
 #### Main Features of TODO_Project App:
 * Display current time and date; 
